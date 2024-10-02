@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 
 export default function App() {
   
-  const [usuario, setUsuario] = useState([]);
+  const [usuario, setUsuario] = useState();
 
   useEffect(() => { 
 
     const buscarUsuario  = async () => {
         const resposta = await fetch('https://randomuser.me/api');
         const dados = await resposta.json();
-        setUsuario(dados)
+        setUsuario(dados.results[0])
     }
     buscarUsuario();
   }, []);
@@ -18,9 +18,18 @@ export default function App() {
     <>
       <h1>Usuário</h1>
       <ul>
-        {
-            //complete o código
-        }
+          <li>
+            {usuario?.gender}
+            </li>
+          <li>
+          {usuario?.name.first}
+          </li>
+          <li>
+          {usuario?.name.title}
+          </li>
+          <li>
+          {usuario?.name.last}
+          </li>
       </ul>
     </>
   );

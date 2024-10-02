@@ -22,7 +22,7 @@ export default function App() {
         <li key={album.id}>
         <h2>{album.title}</h2>
         <p>{album.albumId}</p>
-        <img src={album.thumbnailurl} alt={album.title} width={100} />
+        <img src={album.url} alt={album.url} width={100} />
          </li>
         ))}
       </ul>
